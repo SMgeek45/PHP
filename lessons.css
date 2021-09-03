@@ -1,0 +1,10 @@
+h1, h2, h3, p, div, ol, ul {
+    display: flex;
+    justify-content: center;
+}
+
+ol, ul {
+    display: flex;
+    flex-direction: column;
+    margin-left: 47%;
+}
