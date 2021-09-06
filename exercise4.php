@@ -17,29 +17,43 @@
 <h1>Exercice 4</h1>
     <h5>1- créer une <a href="https://www.latoilescoute.net/table-de-vigenere" target="_blank">table de vigenère</a></h5>
     <?php
-    // TO DO
-    $alphabet = "ABCD";
+    // create a vigenere tab
+    $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $alphabetTab = str_split($alphabet);
     $doubleAlphaTab = array_merge($alphabetTab, $alphabetTab);
-    
-$sizeAlphabet = count($alphabetTab);
+    $sizeAplabet = count($alphabetTab);
 
-
-    for ($i=0; $i < $sizeAlphabet; $i++) {
-        for ($j = 0; $j < $sizeAlphabet; $j++) {
+    for ($i = 0; $i < $sizeAplabet; $i++){
+        for ($j = 0; $j <$sizeAplabet; $j++) {
             $line = $alphabetTab[$i];
             $column = $alphabetTab[$j];
-            $vigenere[$line][$column] = $doublelphaTab[$j + $i];
+            $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
         }
     }
     var_dump($vigenere);
     ?>
+
     <h5>2- encode le message "APPRENDRE PHP EST UNE CHOSE FORMIDABLE" avec la clé "BACKEND"</h5>
     <?php
     $message = "APPRENDRE PHP EST UNE CHOSE FORMIDABLE";
     $key = "BACKEND";
+    $messageTab = str_split($message);
+    $keyTab = str_split($key);
+    $keySize = count($keyTab);
+
+    $keyCounter = 0;
+    foreach ($messageTab as $pointer => $letterToEncode) {
+        $positionKeyLetter = $keyCounter % $keySize;
+        $keyLetter = $keyTab[$positionKeyLetter];
+        if($letterToEncode != " ") {
+            $encodedMessage[] = $vigenere[$letterToEncode][$keyLetter];
+        } else {
+            $encodedMessage[] = " ";
+        }
+        $counter++;
+    }
     // TO DO
-    $cryptedMessage = $message;
+    $cryptedMessage = implode($encodedMessage);
     /**
     * astuce pour la rotation de la clé BACKEND
     * 14 / 7 -> 2
@@ -56,8 +70,29 @@ $sizeAlphabet = count($alphabetTab);
     <?php
     $encodedMessage = "TWA PEE WM TESLH WL LSLVNMRJ";
     $key4decode = "VIGENERE";
+    $encodeMessageTab2 = str_split($encodedMessage);
+    $key4decodeTab2 = str_split($key4decode);
+    $key4decodeSize2 = count($key4decodeTab);
+
+    $keyCounter2 = 0;
+    foreach ($encodeMessageTab as $pointer => $letterToEncode) {
+        $positionKeyLetter2 = $keyCounter2 % $key4decodeSize;
+        $keyLetter = $key4decodeTab2[$positionKeyLetter];
+        if($letterToEncode != " ") {
+            for ($i = 0; $i < $sizeAplabet; $i++){
+                $lineToDecode = $alphabetTab [$i];
+                if ($vigenere[$i][$keyLetter] == $letterToEncode); {
+                    $decrypteMessage[] = $lineToDecode;
+                }
+            }
+        } else {
+            $decrypteMessage[] = " ";
+        }
+        $counter++;
+    }
     // TO DO
-    $decodedMessage = $encodedMessage;
+    $decodeMessage = implode($decrypteMessage);
+    // TO DO
     ?>
     <p>le message chiffré est: <?php echo $encodedMessage; ?></p>
     <p>la clé est: <?php echo $key4decode ?></p>
