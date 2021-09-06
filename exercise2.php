@@ -8,7 +8,9 @@
     <title>Exercise2</title>
 </head>
 <body>
+<?php include("./partial/_navBar.php"); ?>
 <h1>Exercice 2</h1>
+
     <h3>Décoder des messages</h3>
     <p>les messages à décoder</p>
     <?php

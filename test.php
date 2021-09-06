@@ -96,6 +96,24 @@
     
 
     =============================================
+
+
+    $alphabet = "ABCD";
+    $alphabetTab = str_split($alphabet);
+    $doubleAlphaTab = array_merge($alphabetTab, $alphabetTab);
+    
+$sizeAlphabet = count($alphabetTab);
+
+
+    for ($i=0; $i < $sizeAlphabet; $i++) {
+        for ($j = 0; $j < $sizeAlphabet; $j++) {
+            $line = $alphabetTab[$i];
+            $column = $alphabetTab[$j];
+            $vigenere[$line][$column] = $doublelphaTab[$j + $i];
+        }
+    }
+    var_dump($vigenere);
+
     </pre>
 
    <p> test github</p>

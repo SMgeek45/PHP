@@ -8,8 +8,11 @@
     <title>exercise3</title>
 </head>
 <body>
-    
-<h1>Exercice 3</h1>
+        <?php include("./partial/_navBar.php"); ?>
+        <div class="container">
+        <h1>Exercice 3</h1>
+
+        </div>
     <?php
     //PHP 018
     $tab1 = ["moteur", "carotte", "haricot", "pomme de terre", "usine", "salade", "navet", "marteau"];

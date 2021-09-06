@@ -16,17 +16,21 @@
     <div class="container">
         <h1>Exercices</h1>
     </div>
+    <br>
     <div>
-        <p>Si nous sommes sur cette page, alors l'exercice 1 est déjà fait!
-    Numéro du cours des leçons de Jeff Nys: 004 et 005</p>
+        <p>Si nous sommes sur cette page, alors l'exercice 1 est déjà fait: il s'agit
+        des numéros des leçons de Jeff Nys: 004 et 005</p>
     </div>
+    <br>
     <ol>
-        <li><a href="./exercise2.php">Exercice 2</a></li>
-        <li><a href="./exercise3.php">Exercice 3</a></li>
-        <li><a href="./exercise4.php">Exercice 4</a></li>
-        <li><a href="./exercise5.php">Exercice 5</a></li>
+        <li><a href="./exercise2.php">Exercice 2</a> PHP 016 et 017</li><br>
+        <li><a href="./exercise3.php">Exercice 3</a> PHP 018 et 019</li><br>
+        <li><a href="./exercise4.php">Exercice 4</a> PHP 025 à 028</li><br>
+        <li><a href="./exercise5.php">Exercice 5</a> PHP 032 et 033</li><br>
     </ol>
-
+    <div id="cours">
+    <a href="https://jeffnys.com/php/"><input type="button" value="Dernier cours : PHP 025 , le 3 septembre"></a>
+    </div>
 
     <script src="./bootstrap/bootstrap.bundle.min.js"></script>
 </body>
