@@ -216,7 +216,14 @@ for ($i = 0; $i < $sizeAlphabet; $i++) {
 }
 var_dump($vigenere);
 ?>
-
+====================//=========================
+<?php
+if($_SESSION["user"]) {
+    echo "Vous êtes connecté.";
+} else {
+    echo "Vous n'existez pas.";
+}
+?>
     </pre>
 
         <p> test github</p>

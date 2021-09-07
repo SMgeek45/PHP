@@ -2,8 +2,8 @@
 include(`./script/functions.php`);
 $data = openDB();
 if (!empty($_POST)) {
-    $secuzedDataFromForm = treatFormData($_POST,"title","note",);
-    extract($secuzedDataFromForm, EXTR_OVERWRITE);
+    $securizedDataFromForm = treatFormData($_POST,"title","note",);
+    extract($securizedDataFromForm, EXTR_OVERWRITE);
 }
 
 if(isset($title, $note)) {
