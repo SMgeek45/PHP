@@ -27,10 +27,9 @@
         for ($j = 0; $j <$sizeAplabet; $j++) {
             $line = $alphabetTab[$i];
             $column = $alphabetTab[$j];
-            $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
+            $vigenere[$line][$column] = $doubleAlphaTab[$i + $j];
         }
     }
-    var_dump($vigenere);
     ?>
 
     <h5>2- encode le message "APPRENDRE PHP EST UNE CHOSE FORMIDABLE" avec la clé "BACKEND"</h5>

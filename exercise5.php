@@ -8,6 +8,8 @@
     <title>exercise5</title>
 </head>
 <body>
+<?php include("./partial/_navBar.php"); ?>
+
 <h1>Exercise 5</h1>
 <?php
 if (!empty($_POST)) {
