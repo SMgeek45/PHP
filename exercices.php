@@ -29,9 +29,10 @@
         <li><a href="./exercise5.php">Exercice 5</a> PHP 032 et 033</li><br>
         <li><a href="./exercise6.php">Exercice 6</a> PHP 034 et 035</li><br>
         <li><a href="./exercise6.php">Exercice 7</a> PHP 039 et 040</li><br>
+        <li><a href="./exercise6.php">Exercice 8</a> PHP 043 et 044</li><br>
     </ol>
     <div id="cours">
-    <a href="https://jeffnys.com/php/"><input type="button" value="Dernier cours : PHP 040 , à finir le 7 septembre"></a>
+    <a href="https://jeffnys.com/php/"><input type="button" target="_blank" value="Dernier cours : PHP 042 , 7 septembre"></a>
     </div>
 
     <script src="./bootstrap/bootstrap.bundle.min.js"></script>
