@@ -20,7 +20,6 @@
 =====================09======================
 <?php
 #PHP 09#
-
 $string = "php tests";
 $int = 3;
 $float = 3.14;
@@ -30,7 +29,6 @@ $array[] = $int;
 $array[] = $float;
 $array = ["veggie", "carotte", "choux"];
 var_dump($array);
-
 $boolean = true;
 var_dump($boolean);
 ?>
@@ -44,6 +42,7 @@ $fullName0 = $firstName . " " . $name;
 $fullName1 = " $firstName $name";
 echo "Le gugus s'appelle $fullName1 ";
 ?>
+<br>
 ====================13========================
 <?php
 #PHP 013#
@@ -92,7 +91,7 @@ $tab3 = [
     `tab3Key3` => "tableau 3 valeur 3",
 ];
 
-$tab[] = [
+$tab4[] = [
     `tab1` => $tab1,
     `tab2` => $tab2,
     `tab3` => $tab3,
@@ -211,7 +210,7 @@ for ($i = 0; $i < $sizeAlphabet; $i++) {
     for ($j = 0; $j < $sizeAlphabet; $j++) {
         $line = $alphabetTab[$i];
         $column = $alphabetTab[$j];
-        $vigenere[$line][$column] = $doublelphaTab[$j + $i];
+        $vigenere[$line][$column] = $doubleAlphaTab[$j + $i];
     }
 }
 var_dump($vigenere);

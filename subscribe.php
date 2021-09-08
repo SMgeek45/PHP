@@ -3,8 +3,8 @@ session_start();
 include("./script/functions.php");
 
 if (!empty($_POST)) {
-    $securizedDataFromForm = treatFormData($_POST,"name","firstName", "email", "password",);
-    extract($securizedDataFromForm, EXTR_OVERWRITE);
+    $securePost = treatFormData($_POST,"name","firstName", "email", "password",);
+    extract($securePost, EXTR_OVERWRITE);
     $data = openDB();
 
     $hashPassword = password_hash($password, PASSWORD_ARGON2ID);
@@ -17,7 +17,7 @@ if (!empty($_POST)) {
         "role" => ["ROLE_USER"],
     ]);
     writeDB($data);
-    header("Location: /login.php");
+    header("Location: /connexion.php");
 }
 ?>
 
@@ -27,13 +27,14 @@ if (!empty($_POST)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <title>Connexion</title>
 </head>
 <body>
     <?php include("./partial/_navBar.php") ?>
     <div class="container">
-        <h1>Inscription</h1>
-        <h3>PHP 046</h3>
+        <h1>Connexion</h1>
+        <h3>PHP 046 et 050</h3>
         <form method="post">
         <div class="form-group">
                 <label class="col-form-label" for="name">Nom : </label>
@@ -45,7 +46,7 @@ if (!empty($_POST)) {
             </div>
             <div class="form-group">
                 <label class="col-form-label" for="email">Courriel : </label>
-                <input type="text" class="form-control border border-3" name="email">
+                <input type="email" class="form-control border border-3" name="email">
             </div>
             <div class="form-group">
                 <label class="col-form-label" for="password">Mot de passe : </label>

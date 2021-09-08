@@ -66,13 +66,13 @@ function uncodeVigenere(string $encodedMessage, string $key): string {
     $keySize2 = count($keyTab);
 
     $keyCounter2 = 0;
-    foreach ($encodeMessageTab as $pointer => $letterToEncode) {
+    foreach ($encodeMessageTab as $pointer => $letterToEncode): {
         $positionKeyLetter2 = $keyCounter2 % $keySize;
         $keyLetter = $keyTab2[$positionKeyLetter];
         if($letterToEncode != " ") {
-            for ($i = 0; $i < $sizeAplabet; $i++){
+            for ($i = 0; $i < $sizeAplabet; $i++) {
                 $lineToDecode = $alphabetTab [$i];
-                if ($vigenere[$i][$keyLetter] == $letterToEncode); {
+                if ($vigenere[$i][$keyLetter] == $letterToEncode) {
                     $decrypteMessage[] = $lineToDecode;
                 }
             }
@@ -81,7 +81,6 @@ function uncodeVigenere(string $encodedMessage, string $key): string {
         }
         $counter++;
     }
-
     $decodeMessage = implode($decrypteMessage);
     return $decodedMessage;
 }

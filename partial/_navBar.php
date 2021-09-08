@@ -21,14 +21,23 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/contact.php">Contact</a>
                 </li>
+                <?php if ($_SESSION["user"]) :
+                    if(in_array("ROLE_ADMIN", $_SESSION["user"]["role"])) :
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin.php">Admin</a>
+                </li>
+                <?php endif ?>
+                <?php else : ?>
                 <li class="nav-item">
                     <a class="nav-link active" href="/subscribe.php">Inscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/connexion.php">Connexion</a>
+                    <a class="nav-link active btn btn-success" href="/connexion.php">Connexion</a>
                 </li>
+                <?php endif ?>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/deconnexion.php">Déconnexion</a>
+                    <a class="nav-link active btn btn-secondary" href="/deconnexion.php">Déconnexion</a>
                 </li>
             </ul>
         </div>

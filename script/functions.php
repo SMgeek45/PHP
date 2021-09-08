@@ -20,7 +20,7 @@ function treatFormData(array $data, string ...$wanted): array {
 function openDB(): array {
     $data = file_get_contents(DBJSON);
     $array = json_decode($data, true);
-    if (!array) {
+    if (!$array) {
         $array = [];
     }
         foreach (DBTABLE as $index => $table) {
