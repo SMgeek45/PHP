@@ -24,6 +24,12 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/subscribe.php">Inscription</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/connexion.php">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/deconnexion.php">Déconnexion</a>
+                </li>
             </ul>
         </div>
     </div>

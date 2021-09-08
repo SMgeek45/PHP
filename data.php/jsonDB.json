@@ -1,1 +1,12 @@
-{"name":"Leclown", "firstName":"Bozo", "job":"circus"}
+{"user": [
+    {
+        "email":"123@gmail;com",
+        "name":"123",
+        "firstName":"456",
+        "password":"789",
+        "role":[
+            "ROLE_ADMIN",
+            "ROLE_USER"
+        ]
+    }
+]}

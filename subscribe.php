@@ -14,6 +14,7 @@ if (!empty($_POST)) {
         "name" => $name,
         "firstName" => $firstName,
         "password" => $hashPassword,
+        "role" => ["ROLE_USER"],
     ]);
     writeDB($data);
     header("Location: /login.php");
@@ -32,6 +33,7 @@ if (!empty($_POST)) {
     <?php include("./partial/_navBar.php") ?>
     <div class="container">
         <h1>Inscription</h1>
+        <h3>PHP 046</h3>
         <form method="post">
         <div class="form-group">
                 <label class="col-form-label" for="name">Nom : </label>

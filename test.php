@@ -216,13 +216,33 @@ for ($i = 0; $i < $sizeAlphabet; $i++) {
 }
 var_dump($vigenere);
 ?>
-====================//=========================
+====================48=========================
 <?php
-if($_SESSION["user"]) {
-    echo "Vous êtes connecté.";
+if(in_array("ROLE_ADMIN", $_SESSION["user"]["role"],)) {
+    echo "Vous êtes administrateur.";
 } else {
     echo "Vous n'existez pas.";
 }
+
+$tab = [
+    "ligne1" => [
+        "colonne1" => "valeurLigne1Colonne1",
+        "colonne2" => "valeurLigne1Colonne2"
+    ],
+    "ligne2" => [
+        "colonne1" => "valeurLigne2Colonne1",
+        "colonne2" => "valeurLigne2Colonne2"
+    ],
+];
+
+var_dump("$tab");
+
+echo "---------";
+echo "<br>";
+$ligne1 = $tab["ligne1"];
+echo $ligne1["colonne2"];
+echo "<br>";
+echo $tab["ligne1"]["colonne2"];
 ?>
     </pre>
 
