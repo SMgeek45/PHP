@@ -34,7 +34,7 @@ if (!empty($_POST)) {
     <?php include("./partial/_navBar.php") ?>
     <div class="container">
         <h1>Connexion</h1>
-        <h3>PHP 046 et 050</h3>
+        <h3>PHP 046</h3>
         <form method="post">
         <div class="form-group">
                 <label class="col-form-label" for="name">Nom : </label>

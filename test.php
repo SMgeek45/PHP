@@ -248,6 +248,55 @@ echo $tab["ligne1"]["colonne2"];
         <p> test github</p>
     </div>
 
+===============51=================
+<?php if (!empty($_POST)) {
+    $theFile = $_FILES["path"];
+    $theFileOnServer = $Files["tmp_name"];
+    $autorizedMime = ["image/jpeg","image/jpg","image/gif","image/png"];
+    // test about mime type
+    $testMime = mime_content_type($theFileOnServer);
+    if(!in_array($testMime, $autorizedMime)) {
+        $errorMessage = "Le fichier n'est pas reconnu comme une image.";
+    }
+    // test about uploaded file
+    if(!is_uploaded_file($theFileOnServer)) {
+        $errorMessage = "Il y a eu une erreur d'upload du fichier.";
+    }
+    // test about size
+    $fileSize = filesize($theFileOnServer);
+    if(99000 < $fileSize) {
+        $errorMessage = "Le fichier est trop volumineux.";
+    }
+    if(!$errorMessage) {
+        //basename help to protect to files attacks
+        $originalFileName = basename($theFile["name"]);
+        $ext = pathinfo($originalFileName, PATHINFO_EXTENSION);
+        $mainName = pathinfo($originalFileName, PATHINFO_FILENAME);
+        $tmpCleanedName = preg_replace("/\s/", "-", $mainName);
+        $cleanedName = trim($tmpCleanedName, "-");
+        $finalName = $cleanedName . uniqid() . "-" . $ext;
+        $destination = UPLOADFOLDER . $finalName;
+        $succesUpload = move_uploaded_file($theFileOnServer, $destination);
+        if(!$succesUpload) {
+            $message = "OK, nous avons bien uploadé le fichier";
+        } else {
+            $message = "Il y a eu un soucis lors de l'upload";
+        }
+    }
+}
+?> <br>
+===============51=================
+<?php if($errorMessage) :?>
+    <p><?php echo ($errorMessage);?></p>
+<?php endif ?>    
+<form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-form-label" for="path">Votre fichier : </label>
+                <input type="file" class="form-control border border-3" name="path">
+            </div>
+            <input class="btn btn-primary mb-4 mt-3" type="submit" value="Uploader" name="submit">
+        </form>
+
     <script src="./bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 

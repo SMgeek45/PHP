@@ -61,6 +61,7 @@ if (!empty($_POST)) {
     <title>Document</title>
 </head>
 <body>
+<?php include("./partial/_navBar.php"); ?>
 <form method="post">
             <div class="form-group">
                 <label class="col-form-label" for="email">Courriel : </label>
