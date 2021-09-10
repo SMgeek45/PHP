@@ -13,7 +13,7 @@
     <?php include("./partial/_navBar.php"); ?>
     <div class="container">
         <h1>Test</h1>
-        <p>PHP : 009, 012, 013, 015, [Exercises: 2, 3, 4, 5 et 6] 036, [Exercise 7], 041, 042 [Exercise 8]</p>
+        <p>PHP : 009, 012, 013, 015, [Exercises: 2, 3, 4, 5 et 6] 036, [Exercise 7], 041, 042 [Exercise 8], 048 et 51</p>
         <pre>
     résultats php
     

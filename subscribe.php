@@ -6,8 +6,18 @@ if (!empty($_POST)) {
     $securePost = treatFormData($_POST,"name","firstName", "email", "password",);
     extract($securePost, EXTR_OVERWRITE);
     $data = openDB();
+    $users = $data["user"];
 
-    $hashPassword = password_hash($password, PASSWORD_ARGON2ID);
+    $idUser = -404;
+
+    foreach($users as $id => $user) {
+        if($email == $user["email"]) {
+            $idUser = $id;
+        }
+    }
+
+    if ($idUser == -404) {
+        $hashPassword = password_hash($password, PASSWORD_ARGON2ID);
 
     array_push($data["user"], [
         "email" => $email,
@@ -19,6 +29,24 @@ if (!empty($_POST)) {
     writeDB($data);
     header("Location: /connexion.php");
 }
+    
+
+    $hashPassword = password_hash($password, PASSWORD_ARGON2ID);
+
+    array_push($data["user"], [
+        "email" => $email,
+        "name" => $name,
+        "firstName" => $firstName,
+        "password" => $hashPassword,
+        "path" => "",
+        "role" => ["ROLE_USER"],
+    ]);
+    writeDB($data);
+    header("Location: /connexion.php");
+} else {
+    $errorMessage = "Cette adresse e-mail est déjà utilisée";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +63,13 @@ if (!empty($_POST)) {
     <div class="container">
         <h1>Connexion</h1>
         <h3>PHP 046</h3>
+        <?php if ($errorMessage) :?>
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <h4 class="alert-heading">Attention!</h4>
+  <p class="mb-0"><?php echo $errorMessage ?></p>
+</div>
+<?php endif ?>
         <form method="post">
         <div class="form-group">
                 <label class="col-form-label" for="name">Nom : </label>

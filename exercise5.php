@@ -17,29 +17,29 @@ if (!empty($_POST)) {
         $message = strip_tags($_POST["message"]);
     }
     if ($_POST["key"]) {
-        $message = strip_tags($_POST["key"]);
+        $key = strip_tags($_POST["key"]);
     }
     if ($_POST["encodedMessage"]) {
-        $message = strip_tags($_POST["encodedMessage"]);
+        $encodedMessage = strip_tags($_POST["encodedMessage"]);
     }
     if ((!$key && $message)||(!$key && $encodedMessage)) {
         $errorMessage = "Vous devez entrer la clé";
     } elseif (!$message && !$encodedMessage && $key) {
-        $errorMessage = "action non éfinie";
+        $errorMessage = "action non définie";
     } elseif ($message && $encodedMessage && $key) {
         $errorMessage = "trop d'informations";
-    };
+    }
     if (!$errorMessage) {
         $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $alphabetTab = str_split($alphabet);
         $doubleAlphaTab = array_merge($alphabetTab, $alphabetTab);
-        $sizeAplabet = count($alphabetTab);
+        $sizeAlphabet = count($alphabetTab);
     
-        for ($i = 0; $i < $sizeAplabet; $i++){
-            for ($j = 0; $j <$sizeAplabet; $j++) {
+        for ($i = 0; $i < $sizeAlphabet; $i++){
+            for ($j = 0; $j <$sizeAlphabet; $j++) {
                 $line = $alphabetTab[$i];
                 $column = $alphabetTab[$j];
-                $vigenere[$line][$column] = $doubleAlphabetTab[$i + $j];
+                $vigenere[$line][$column] = $doubleAlphaTab[$i + $j];
             }
         }
         if ($message && $key) {
@@ -52,39 +52,38 @@ if (!empty($_POST)) {
                 $positionKeyLetter = $keyCounter % $keySize;
                 $keyLetter = $keyTab[$positionKeyLetter];
                 if($letterToEncode != " ") {
-                    $encodedMessage[] = $vigenere[$letterToEncode][$keyLetter];
+                    $encodedMessageTab[] = $vigenere[$letterToEncode][$keyLetter];
                 } else {
-                    $encodedMessage[] = " ";
+                    $encodedMessageTab[] = " ";
                 }
-                $counter++;
+                $keyCounter++;
             }
             // TO DO
-            $encodedMessage = implode($encodedMessage);
+            $encodedMessage = implode($encodedMessageTab);
         } elseif ($encodedMessage && $key) {
-            $encodedMessage = "TWA PEE WM TESLH WL LSLVNMRJ";
             $key4decode = $key;
-            $encodeMessageTab2 = str_split($encodedMessage);
-            $key4decodeTab2 = str_split($key4decode);
-            $key4decodeSize2 = count($key4decodeTab);
+            $encodeMessageTab = str_split($encodedMessage);
+            $key4decodeTab = str_split($key4decode);
+            $key4decodeSize = count($key4decodeTab);
         
-            $keyCounter2 = 0;
-            foreach ($encodeMessageTab as $pointer => $letterToEncode) {
-                $positionKeyLetter2 = $keyCounter2 % $key4decodeSize;
-                $keyLetter = $key4decodeTab2[$positionKeyLetter];
-                if($letterToEncode != " ") {
-                    for ($i = 0; $i < $sizeAplabet; $i++){
-                        $lineToDecode = $alphabetTab [$i];
-                        if ($vigenere[$i][$keyLetter] == $letterToEncode); {
+            $keyCounter = 0;
+            foreach ($encodeMessageTab as $pointer => $letterToDecode) {
+                $positionKeyLetter = $keyCounter % $key4decodeSize;
+                $keyLetter = $key4decodeTab[$positionKeyLetter];
+                if($letterToDecode != " ") {
+                    for ($i = 0; $i < $sizeAlphabet; $i++){
+                        $lineToDecode = $alphabetTab[$i];
+                        if ($vigenere[$lineToDecode][$keyLetter] == $letterToDecode) {
                             $decrypteMessage[] = $lineToDecode;
                         }
                     }
                 } else {
                     $decrypteMessage[] = " ";
                 }
-                $counter++;
+                $keyCounter++;
             }
         
-            $decodeMessage = implode($decrypteMessage);
+            $message = implode($decrypteMessage);
             // TO DO
         }
     }

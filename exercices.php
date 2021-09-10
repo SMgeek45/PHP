@@ -35,9 +35,10 @@ include("./script/functions.php");
         <li><a href="./exercise7.php">Exercice 7</a> PHP 039 et 040</li><br>
         <li><a href="./exercise8.php">Exercice 8</a> PHP 043 et 044</li><br>
         <li><a href="./connexion.php">Exercice 9</a> PHP 049 et 050</li><br>
+        <li><a href="./compte.php">Exercice 10</a>PHP 051 à 056</li>
     </ol>
     <div id="cours">
-    <a href="https://jeffnys.com/php/"><input type="button" target="_blank" value="Dernier cours : PHP 050 , 8 septembre"></a>
+    <a href="https://jeffnys.com/php/"><input type="button" target="_blank" value="Dernier cours : PHP 056 , 10 septembre"></a>
     </div>
 
     <script src="./bootstrap/bootstrap.bundle.min.js"></script>

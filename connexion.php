@@ -14,6 +14,7 @@ if (!empty($_POST)) {
                     "firstName" => $user["firstName"],
                     "email" => $user ["email"],
                     "role" => $user ["role"],
+                    "path" => $user["path"],
                 ];
                 header("Location: /");
             }
@@ -62,6 +63,15 @@ if (!empty($_POST)) {
 </head>
 <body>
 <?php include("./partial/_navBar.php"); ?>
+<div class="container">
+    <h1>Connexion</h1>
+    <?php if ($errorMessage) :?>
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <h4 class="alert-heading">Attention!</h4>
+  <p class="mb-0"><?php echo $errorMessage ?></p>
+</div>
+<?php endif ?>
 <form method="post">
             <div class="form-group">
                 <label class="col-form-label" for="email">Courriel : </label>
@@ -73,5 +83,6 @@ if (!empty($_POST)) {
             </div>
             <input class="btn btn-primary mb-4 mt-3" type="submit" value="Se connecter">
         </form>
+</div>
 </body>
 </html>
