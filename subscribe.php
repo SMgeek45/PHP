@@ -28,23 +28,9 @@ if (!empty($_POST)) {
     ]);
     writeDB($data);
     header("Location: /connexion.php");
-}
-    
-
-    $hashPassword = password_hash($password, PASSWORD_ARGON2ID);
-
-    array_push($data["user"], [
-        "email" => $email,
-        "name" => $name,
-        "firstName" => $firstName,
-        "password" => $hashPassword,
-        "path" => "",
-        "role" => ["ROLE_USER"],
-    ]);
-    writeDB($data);
-    header("Location: /connexion.php");
 } else {
     $errorMessage = "Cette adresse e-mail est déjà utilisée";
+}
 }
 
 ?>
@@ -56,12 +42,12 @@ if (!empty($_POST)) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
-    <title>Connexion</title>
+    <title>Inscription</title>
 </head>
 <body>
     <?php include("./partial/_navBar.php") ?>
     <div class="container">
-        <h1>Connexion</h1>
+        <h1>Inscription</h1>
         <h3>PHP 046</h3>
         <?php if ($errorMessage) :?>
 <div class="alert alert-dismissible alert-warning">

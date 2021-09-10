@@ -1,1 +1,2 @@
-{"user":null}
+{"user":[{"email":"stephane@gmail.com","name":"abc","firstName":"def","password":"$argon2id$v=19$m=65536,t=4,p=1$elE2QS5UOTg1UG1sVkZ1Rw$XiLoKxqWzGGperknvv+9qrUkbXYhU3u6lrzQuUoVGRg","role":["ROLE_USER"]},
+{"email":"stephane.m450@gmail.com","name":"Marajo","firstName":"St\u00e9phane","password":"$argon2id$v=19$m=65536,t=4,p=1$a052WGVUTG1EdTdMLi5sSw$LsO5Xna9rYWLhE\/IeCbvkRLept0vS16yPWWny5k3oIQ","role":["ROLE_USER"]}],"note":[]}

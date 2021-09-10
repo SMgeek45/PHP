@@ -24,7 +24,7 @@ function openDB(): array {
         $array = [];
     }
         foreach (DBTABLE as $index => $table) {
-            if (array_key_exists($table, $array)) {
+            if (!array_key_exists($table, $array)) {
             $array[$table] = [];
         }
     }
